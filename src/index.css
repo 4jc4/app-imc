@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cores Base */
+  --color-background: var(--bg-color);
+  --color-surface: var(--surface-color);
+  --color-text-main: var(--text-color);
+  --color-border-subtle: var(--border-color);
+  --color-bg-hover: var(--hover-color);
+
+  /* Cores de Status (Sem Hardcoded no JS) */
+  --color-status-below: var(--status-below);
+  --color-status-normal: var(--status-normal);
+  --color-status-over: var(--status-over);
+  --color-status-obese: var(--status-obese);
+}
+
+:root {
+  /* Base Light */
+  --bg-color: #f8fafc; /* slate-50 */
+  --surface-color: #ffffff;
+  --text-color: #0f172a; /* slate-900 */
+  --border-color: #e2e8f0; /* slate-200 */
+  --hover-color: #f1f5f9; /* slate-100 */
+
+  /* Status Light */
+  --status-below: #0ea5e9; /* sky-500 */
+  --status-normal: #10b981; /* emerald-500 */
+  --status-over: #f59e0b; /* amber-500 */
+  --status-obese: #f43f5e; /* rose-500 */
+}
+
+:root[data-theme="dark"] {
+  /* Base Dark */
+  --bg-color: #020617; /* slate-950 */
+  --surface-color: #0f172a; /* slate-900 */
+  --text-color: #f1f5f9; /* slate-100 */
+  --border-color: #1e293b; /* slate-800 */
+  --hover-color: #1e293b; /* slate-800 - Destaque sutil e legível */
+
+  /* Status Dark (Tons levemente mais claros para brilhar no escuro) */
+  --status-below: #38bdf8; /* sky-400 */
+  --status-normal: #34d399; /* emerald-400 */
+  --status-over: #fbbf24; /* amber-400 */
+  --status-obese: #fb7185; /* rose-400 */
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Garantindo que fontes mono usem JetBrains se disponível */
+  code,
+  pre,
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
